@@ -50,7 +50,7 @@ export default function MicroBlog() {
     <Box maxWidth={'640px'} marginX="auto">
       {/* <h4 id={styles.microPostTitle}>Micro Posts:  {totalPosts} </h4> */}
       {posts.map((post) => (
-        <MicroBlogPost key={post._id.toString()} post={post} />
+        <MicroBlogPost key={post._id} post={post} />
       ))}
       {loading === true ? (
         <Center>

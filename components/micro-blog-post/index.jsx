@@ -26,7 +26,7 @@ export default function MicroBlogPost({ post }) {
     : '';
   const cleanDate = dayjs(post.createdAt).format("DD MMM 'YY h:m a");
   return (
-    <Box key={post._id.toString()}>
+    <Box key={post._id}>
       <Flex paddingX={1} paddingY={4} borderBottom={`1px dotted ${mood}`}>
         <Box minWidth="10%">
           <Avatar src="/myavatar.jpg" w={10} h={10} width="100%" />
