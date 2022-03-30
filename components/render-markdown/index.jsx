@@ -112,7 +112,6 @@ const customComponents = (mood) => ({
 });
 
 export default function RenderMarkdown({ children }) {
-  console.log(children);
   const { mood } = React.useContext(GlobalContext);
   return (
     <ReactMarkdown

@@ -3,15 +3,10 @@ import axios from 'axios';
 import MicroBlogPost from '../../../components/micro-blog-post';
 import { Box, Text, Textarea, Input } from '@chakra-ui/react';
 import Layout from '../../../components/layout/layout';
+import { getPostById } from '../../api/getPost/[postId]';
 
-const MicroBlogEditor = () => {
-  const initPost = {
-    name: 'sagark',
-    content: 'write here',
-    tags: '',
-    createdAt: new Date(),
-  };
-  const [post, setPost] = React.useState(initPost);
+export default function MicroBlogEditor({ iPost }) {
+  const [post, setPost] = React.useState(iPost);
   const [key, setKey] = React.useState('');
   const [status, setStatus] = React.useState('');
   const [submitAvail, setSubmitAvail] = React.useState(true);
@@ -31,11 +26,12 @@ const MicroBlogEditor = () => {
   const handleSubmit = async (event) => {
     setSubmitAvail(false);
     try {
-      const response = await axios.post(`/api/addPost`, {
+      const response = await axios.post(`/api/editPost`, {
         ...post,
         key,
       });
-      setPost(initPost);
+      const newPost = await axios.get(`/api/getPost/${post._id.toString()}`);
+      setPost(JSON.parse(JSON.stringify(newPost.data.data)));
       setStatus(response.data.message);
       setSubmitAvail(true);
     } catch (error) {
@@ -81,6 +77,9 @@ const MicroBlogEditor = () => {
       </Box>
     </Layout>
   );
-};
+}
 
-export default MicroBlogEditor;
+export async function getServerSideProps(context) {
+  const post = await getPostById(context.params.id);
+  return { props: { iPost: JSON.parse(JSON.stringify(post)) } };
+}
