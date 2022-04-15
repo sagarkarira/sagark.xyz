@@ -28,10 +28,10 @@ export default function MicroBlogPost({ post }) {
   return (
     <Box key={post._id}>
       <Flex paddingX={1} paddingY={4} borderBottom={`1px dotted ${mood}`}>
-        <Box minWidth="10%">
-          <Avatar src="/myavatar.jpg" w={10} h={10} width="100%" />
+        <Box minWidth={12}>
+          <Avatar src="/myavatar.jpg" w={10} h={10} />
         </Box>
-        <Box minWidth={'90%'}>
+        <Box minWidth={'100%'} paddingX={2}>
           <Text fontWeight="bold" mb={3}>
             {post.name}
           </Text>
@@ -64,18 +64,62 @@ export default function MicroBlogPost({ post }) {
 
 const URL_REGEX = /(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-&?=%.]+/;
 
+// const renderText = (txt, mood, theme) =>
+//   txt.split(' ').map((part, i) => {
+//     if (part.indexOf('\n') > 0) {
+//       return part.split('\n').map((subPart, i) => {
+//         console.log(subPart, i);
+//         return URL_REGEX.test(subPart) ? (
+//           <Link
+//             key={i}
+//             color={mood + (theme === 'dark' ? '.400' : '.700')}
+//             href={subPart + (i % 1 === 0 ? '\n' : '')}
+//             isExternal
+//           >
+//             {subPart + (i % 1 === 0 ? '\n' : '')}
+//           </Link>
+//         ) : (
+//           subPart + (i % 1 === 0 ? '\n' : '')
+//         );
+//       });
+//     } else
+//       return URL_REGEX.test(part) ? (
+//         <Link
+//           key={i}
+//           color={mood + (theme === 'dark' ? '.400' : '.700')}
+//           href={part}
+//           isExternal
+//         >
+//           {part}
+//         </Link>
+//       ) : (
+//         part + ' '
+//       );
+//   });
+
+/*
+Break text into lines.
+Break lines into words
+Check each word for link
+If link --> linkify.
+Add it up
+*/
 const renderText = (txt, mood, theme) =>
-  txt.split(' ').map((part, i) => {
-    return URL_REGEX.test(part) ? (
-      <Link
-        key={i}
-        color={mood + (theme === 'dark' ? '.400' : '.700')}
-        href={part}
-        isExternal
-      >
-        {part}
-      </Link>
-    ) : (
-      part + ' '
-    );
+  txt.split('\n').map((line, ln) => {
+    const wordArr = line.split(' ');
+    return wordArr.map((word, wn) => {
+      const add = wordArr.length - 1 === wn ? '\n' : ' ';
+      return URL_REGEX.test(word) ? (
+        <Link
+          key={wn}
+          color={mood + (theme === 'dark' ? '.400' : '.700')}
+          href={word}
+          isExternal
+        >
+          {word + add}
+        </Link>
+      ) : (
+        word + add
+      );
+    });
   });

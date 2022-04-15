@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import readingTime from 'reading-time';
 
 export function getAllPostIds(postsDirectory) {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -33,12 +34,13 @@ export async function getPostData(postsDirectory, id) {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
-
+  const stats = readingTime(matterResult.content);
   // Combine the data with the id
   return {
     id,
     content: matterResult.content,
     ...matterResult.data,
+    stats,
   };
 }
 

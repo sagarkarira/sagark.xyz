@@ -15,20 +15,25 @@ import {
   UnorderedList,
   Alert,
   AlertDescription,
+  Center,
 } from '@chakra-ui/react';
 import RenderMarkdown from '../../components/render-markdown/index.jsx';
 // import Image from 'next/image';
-import NextLink from 'next/link';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
-import { GlobalContext } from '../../components/globalState';
+import dayjs from 'dayjs';
 
 export default function Blog({ postData }) {
+  const cleanDate = dayjs(postData.createdAt).format('DD MMM YYYY');
+
   return (
     <Layout>
-      <Heading mb={5}>{postData.title}</Heading>
-      <Text mb={20}>Date: {postData.date}</Text>
+      <Center>
+        <Heading mb={5}>{postData.title}</Heading>
+      </Center>
+      <Center>
+        <Text mb={20}>
+          {cleanDate} • {postData.stats.text}
+        </Text>
+      </Center>
       <Box fontWeight="medium">
         <RenderMarkdown>{postData.content}</RenderMarkdown>
       </Box>
