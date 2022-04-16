@@ -47,46 +47,57 @@ export default function Header({ title }) {
         direction={['row']}
         fontFamily={pFont}
       >
-        <Box className="title">
-          <Button color={color} variant="link" fontSize={24} mb={[4, 0, 0, 0]}>
-            <NextLink href="/">{title}</NextLink>
-          </Button>
-        </Box>
+        <NextLink href="/">
+          <Box className="title">
+            <Button
+              color={color}
+              variant="link"
+              fontSize={24}
+              mb={[4, 0, 0, 0]}
+            >
+              {title}
+            </Button>
+          </Box>
+        </NextLink>
         <Flex
           className="links"
           justifyContent={['flex-end']}
           direction={['row']}
           fontSize={'18px'}
         >
-          <Button
-            color={color}
-            colorScheme={mood}
-            variant="ghost"
-            size="sm"
-            fontSize="16px"
-          >
-            <NextLink href="/"> Home </NextLink>
-          </Button>
-
-          <Button
-            color={color}
-            colorScheme={mood}
-            variant="ghost"
-            size="sm"
-            fontSize="16px"
-          >
-            <NextLink href="/blog"> Blog </NextLink>
-          </Button>
-
-          <Button
-            color={color}
-            colorScheme={mood}
-            variant="ghost"
-            size="sm"
-            fontSize="16px"
-          >
-            <NextLink href="/about"> About </NextLink>
-          </Button>
+          <NextLink href="/">
+            <Button
+              color={color}
+              colorScheme={mood}
+              variant="ghost"
+              size="sm"
+              fontSize="16px"
+            >
+              Home
+            </Button>
+          </NextLink>
+          <NextLink href="/blog">
+            <Button
+              color={color}
+              colorScheme={mood}
+              variant="ghost"
+              size="sm"
+              fontSize="16px"
+            >
+              Blog
+            </Button>
+          </NextLink>
+          <NextLink href="/about">
+            <Button
+              color={color}
+              colorScheme={mood}
+              variant="ghost"
+              size="sm"
+              fontSize="16px"
+            >
+              About
+            </Button>
+          </NextLink>
 
           <Button size="sm" variant="ghost" onClick={toggleMood}>
             <CircleIcon boxSize={6} color={mood + '.500'} />

@@ -2,7 +2,9 @@
 
 - Add readtime
 - Add footer
--
+- Add book page
+- Add movie / tv series page from letterboxd
+- Add twitter posse feature on microblog
 
 ### Bugs
 

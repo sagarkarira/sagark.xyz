@@ -13,8 +13,10 @@ export default function Layout({ children }) {
         <Box>
           <Header title={title} />
         </Box>
-        <Box mb="220px">{children}</Box>
-        {/* <Footer title={title} /> */}
+        <Box minH={'50vh'} mb={'200px'}>
+          {children}
+        </Box>
+        <Footer title={title} />
       </Flex>
     </Box>
   );
