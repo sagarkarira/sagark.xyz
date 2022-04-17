@@ -1,4 +1,4 @@
-This is the source code for my new personal blog, hosted at https://sagar.xyz
+This is the source code for my new personal blog, hosted at https://sagark.xyz
 
 Still under development.
 
