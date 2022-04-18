@@ -99,7 +99,12 @@ export default function Header({ title }) {
             </Button>
           </NextLink>
 
-          <Button size="sm" variant="ghost" onClick={toggleMood}>
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={toggleMood}
+            borderRadius={'40%'}
+          >
             <CircleIcon boxSize={6} color={mood + '.500'} />
           </Button>
           <Button size="sm" variant="ghost" onClick={toggleTheme}>

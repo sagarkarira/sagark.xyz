@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  chakra,
   Heading,
   Text,
   Box,
@@ -21,7 +22,8 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import { GlobalContext } from '../../components/globalState';
-
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 const customComponents = (mood) => ({
   a: (props) => {
     return (
@@ -95,12 +97,24 @@ const customComponents = (mood) => ({
       </Text>
     );
   },
-  // pre: ({ children }) => {
+  code: ({ node, inline, className, children, ...props }) => {
+    const match = /language-(\w+)/.exec(className || '');
+    return !inline && match ? (
+      <SyntaxHighlighter
+        style={dracula}
+        language={match[1]}
+        PreTag="div"
+        {...props}
+      >
+        {String(children).replace(/\n$/, '')}
+      </SyntaxHighlighter>
+    ) : (
+      <Code colorScheme={mood}>{children}</Code>
+    );
+  },
+  // code: ({ children }) => {
   //   return <Code colorScheme={mood}>{children}</Code>;
   // },
-  code: ({ children }) => {
-    return <Code colorScheme={mood}>{children}</Code>;
-  },
 
   img: ({ src, alt }) => {
     return (

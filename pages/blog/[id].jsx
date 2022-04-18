@@ -26,14 +26,10 @@ export default function Blog({ postData }) {
 
   return (
     <Layout>
-      <Center>
-        <Heading mb={5}>{postData.title}</Heading>
-      </Center>
-      <Center>
-        <Text mb={20}>
-          {cleanDate} • {postData.stats.text}
-        </Text>
-      </Center>
+      <Heading mb={5}>{postData.title}</Heading>
+      <Text mb={20}>
+        {cleanDate} • {postData.stats.text}
+      </Text>
       <Box fontWeight="medium">
         <RenderMarkdown>{postData.content}</RenderMarkdown>
       </Box>
