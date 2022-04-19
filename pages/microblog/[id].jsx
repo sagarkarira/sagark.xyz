@@ -5,6 +5,10 @@ import MicroBlogPost from '../../components/micro-blog-post';
 import { getPostById } from '../api/getPost/[postId]';
 
 export default function MicroBlogPage({ post }) {
+  const pageMeta = {
+    title: 'Microblog',
+    description: post.content?.slice(0, 120),
+  };
   // const [loading, setLoading] = React.useState(true);
   // const [post, setPost] = React.useState({});
   // React.useEffect(() => {
@@ -15,7 +19,7 @@ export default function MicroBlogPage({ post }) {
   //   })();
   // }, []);
   return (
-    <Layout>
+    <Layout pageMeta={pageMeta}>
       <MicroBlogPost post={post} />
     </Layout>
   );

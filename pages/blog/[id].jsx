@@ -23,9 +23,12 @@ import dayjs from 'dayjs';
 
 export default function Blog({ postData }) {
   const cleanDate = dayjs(postData.createdAt).format('DD MMM YYYY');
-
+  const pageMeta = {
+    title: postData.title,
+    description: postData.description,
+  };
   return (
-    <Layout>
+    <Layout pageMeta={pageMeta}>
       <Heading mb={5}>{postData.title}</Heading>
       <Text mb={20}>
         {cleanDate} • {postData.stats.text}
