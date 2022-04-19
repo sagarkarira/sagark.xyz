@@ -13,7 +13,6 @@ export default function Layout({ children, pageMeta }) {
   //   setOgImage(window.location.origin + '/og-image.png');
   // }, []);
   const router = useRouter();
-  console.log('path', router.asPath);
   const meta = {
     title: 'sagark.xyz ',
     description: 'Learning and Writing. My corner of the web.',

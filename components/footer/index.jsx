@@ -14,18 +14,22 @@ const links = [
   {
     url: 'https://twitter.com/_sagark',
     icon: faTwitter,
+    title: 'Twitter',
   },
   {
     url: 'https://github.com/sagarkarira',
     icon: faGithub,
+    title: 'Github',
   },
   {
     url: 'https://stackoverflow.com/users/2706832/sagar-karira',
     icon: faStackOverflow,
+    title: 'Stack Overflow',
   },
   {
     url: 'https://www.linkedin.com/in/sagar-k-0b354162/',
     icon: faLinkedinIn,
+    title: 'LinkedIn',
   },
 ];
 
@@ -45,7 +49,7 @@ export default function Footer({ title }) {
       <Flex>
         {links.map((link, i) => (
           <Box
-            minwidth={'60%'}
+            margin={'auto'}
             key={i}
             mr={4}
             _hover={{ cursor: 'pointer' }}
@@ -58,12 +62,14 @@ export default function Footer({ title }) {
               setNumber(-1);
             }}
           >
-            <NextLink href={link.url}>
+            <Link href={link.url} title={link.title}>
               <FontAwesomeIcon
+                title={link.title}
+                width={16}
                 icon={link.icon}
                 style={over & (i === number) ? { color: 'grey' } : {}}
               />
-            </NextLink>
+            </Link>
           </Box>
         ))}
       </Flex>

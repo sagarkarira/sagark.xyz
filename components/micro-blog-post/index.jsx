@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './micro-blog-post.module.css';
 import NextLink from 'next/link';
 import Linkify from 'react-linkify';
 import {
@@ -24,7 +23,7 @@ export default function MicroBlogPost({ post }) {
         .map((t) => `${t.trim()}`)
         .join(' ')
     : '';
-  const cleanDate = dayjs(post.createdAt).format("DD MMM 'YY h:m a");
+  const cleanDate = dayjs(post.createdAt).format("DD MMM 'YY hh:mm a");
   return (
     <Box key={post._id}>
       <Flex paddingX={1} paddingY={4} borderBottom={`1px dotted ${mood}`}>

@@ -1,7 +1,6 @@
 // @ts-check
 
 import React from 'react';
-import styles from './micro-blog.module.css';
 import MicroBlogPost from '../micro-blog-post';
 import axios from 'axios';
 import { Spinner, Center, Box, Button } from '@chakra-ui/react';
@@ -66,7 +65,7 @@ export default function MicroBlog() {
         <Center mt={8}>
           <Button colorScheme={mood} variant="ghost">
             {totalPosts > posts.length === true ? (
-              <a className={styles.feedButton} onClick={handleLoadMore}>
+              <a onClick={handleLoadMore}>
                 Load More
                 {/* ({totalPosts - posts.length} posts left) */}
               </a>

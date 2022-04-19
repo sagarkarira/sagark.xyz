@@ -6,6 +6,7 @@
 - Add twitter posse feature on microblog
 - Move to typescript
 - Improve speed and optimation https://stackoverflow.blog/2022/03/30/best-practices-to-increase-the-speed-for-next-js-apps/
+- Add dark mode and mood settings in local storage
 
 #### Completed
 

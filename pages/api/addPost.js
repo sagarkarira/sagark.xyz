@@ -2,7 +2,6 @@ const { connectToDatabase } = require('../../libs/mongo');
 
 module.exports = async (req, res) => {
   const { name, content, tags, key } = req.body;
-  console.log(key, process.env.KEY);
   if (key !== process.env.KEY) {
     return res.status(401).json({
       status: 401,

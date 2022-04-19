@@ -3,10 +3,10 @@ import Layout from '../../components/layout/layout';
 import MicroBlogPost from '../../components/micro-blog-post';
 import { getPostById } from '../api/getPost/[postId]';
 import dayjs from 'dayjs';
+import { Box } from '@chakra-ui/react';
 
 export default function MicroBlogPage({ post }) {
   const cleanDate = dayjs(post.createdAt).format('MMM DD, YYYY');
-  console.log(cleanDate);
   const pageMeta = {
     title: `Microblog Entry : ${cleanDate}`,
     description: post.content?.slice(0, 150),
@@ -22,7 +22,9 @@ export default function MicroBlogPage({ post }) {
   // }, []);
   return (
     <Layout pageMeta={pageMeta}>
-      <MicroBlogPost post={post} />
+      <Box width={['95%', '90%', '85%', '80%']}>
+        <MicroBlogPost post={post} />
+      </Box>
     </Layout>
   );
 }
