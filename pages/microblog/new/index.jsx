@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import MicroBlogPost from '../../../components/micro-blog-post';
-import { Box, Text, Textarea, Input } from '@chakra-ui/react';
+import { Box, Text, Textarea, Input, Flex } from '@chakra-ui/react';
 import Layout from '../../../components/layout/layout';
 
 const MicroBlogEditor = () => {
@@ -45,41 +45,51 @@ const MicroBlogEditor = () => {
     }
   };
   return (
-    <Layout>
-      <Text fontSize={'2xl'} marginBottom="10">
-        MicroBlog Editor
-      </Text>
-      <MicroBlogPost post={post} />
-      <Box>
-        <Text>Post:</Text>
-        <Textarea
-          type="text"
-          name="content"
-          value={post.content}
-          onChange={handleChange}
-        />
-        <Text>Tags: </Text>
-        <Input
-          type="text"
-          name="tags"
-          value={post.tags}
-          onChange={handleChange}
-        />
-        <Text>Key</Text>
-        <Input
-          type="text"
-          name="key"
-          value={post.key}
-          onChange={handleChange}
-        />
-        <br />
-        Submit:
-        {submitAvail && (
-          <Input type="submit" value="Submit" onClick={handleSubmit} />
-        )}
-        Status: {status ? <div>{status}</div> : <div></div>}
-      </Box>
-    </Layout>
+    <Box>
+      <Layout maxWidth={'95%'}>
+        <Text fontSize={'2xl'} marginBottom="10">
+          MicroBlog Editor
+        </Text>
+
+        <Box maxWidth={'90%'} margin="auto">
+          <Flex justifyContent={'space-between'}>
+            <Box width={'45%'}>
+              <MicroBlogPost post={post} />
+            </Box>
+            <Box width={'45%'}>
+              <Text>Post:</Text>
+              <Textarea
+                minH={'400px'}
+                type="text"
+                name="content"
+                value={post.content}
+                onChange={handleChange}
+              />
+              <Text>Tags: </Text>
+              <Input
+                type="text"
+                name="tags"
+                value={post.tags}
+                onChange={handleChange}
+              />
+              <Text>Key</Text>
+              <Input
+                type="text"
+                name="key"
+                value={post.key}
+                onChange={handleChange}
+              />
+              <br />
+              Submit:
+              {submitAvail && (
+                <Input type="submit" value="Submit" onClick={handleSubmit} />
+              )}
+              Status: {status ? <div>{status}</div> : <div></div>}
+            </Box>
+          </Flex>
+        </Box>
+      </Layout>
+    </Box>
   );
 };
 

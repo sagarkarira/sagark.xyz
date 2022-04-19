@@ -6,7 +6,7 @@ import Footer from '../footer';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-export default function Layout({ children, pageMeta }) {
+export default function Layout({ children, pageMeta, maxWidth = '850px' }) {
   // const [ogImage, setOgImage] = useState('');
   // useEffect(() => {
   //   console.log(window.location.origin);
@@ -40,7 +40,7 @@ export default function Layout({ children, pageMeta }) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <Box width="100%" maxW="850px" mx="auto" paddingX={[4, 10]}>
+      <Box width="100%" maxW={maxWidth} mx="auto" paddingX={[4, 10]}>
         <Flex direction="column">
           <Box>
             <Header title={`sagark.xyz`} />
