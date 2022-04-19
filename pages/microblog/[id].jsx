@@ -1,13 +1,15 @@
 import React from 'react';
-import axios from 'axios';
 import Layout from '../../components/layout/layout';
 import MicroBlogPost from '../../components/micro-blog-post';
 import { getPostById } from '../api/getPost/[postId]';
+import dayjs from 'dayjs';
 
 export default function MicroBlogPage({ post }) {
+  const cleanDate = dayjs(post.createdAt).format('MMM DD, YYYY');
+  console.log(cleanDate);
   const pageMeta = {
-    title: 'Microblog',
-    description: post.content?.slice(0, 120),
+    title: `Microblog Entry : ${cleanDate}`,
+    description: post.content?.slice(0, 150),
   };
   // const [loading, setLoading] = React.useState(true);
   // const [post, setPost] = React.useState({});
@@ -26,6 +28,11 @@ export default function MicroBlogPage({ post }) {
 }
 
 export async function getServerSideProps(context) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  );
+
   const post = await getPostById(context.params.id);
   return { props: { post: JSON.parse(JSON.stringify(post)) } };
 }

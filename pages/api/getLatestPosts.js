@@ -15,6 +15,10 @@ export default async function (req, res) {
     .toArray();
 
   const totalPosts = await collection.countDocuments();
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  );
   res.status(200).json({
     data: {
       posts,
