@@ -47,26 +47,21 @@ export default function Header({ title }) {
         direction={['row']}
         fontFamily={pFont}
       >
-        <NextLink href="/">
-          <Box className="title">
-            <Button
-              color={color}
-              variant="link"
-              fontSize={24}
-              mb={[4, 0, 0, 0]}
-            >
-              {title}
-            </Button>
-          </Box>
-        </NextLink>
+        <Box className="title">
+          <Button color={color} variant="link" fontSize={24} mb={[4, 0, 0, 0]}>
+            <NextLink href="/">{title}</NextLink>
+          </Button>
+        </Box>
+
         <Flex
           className="links"
           justifyContent={['flex-end']}
           direction={['row']}
           fontSize={'18px'}
         >
-          <NextLink href="/">
+          <NextLink href="/" passHref>
             <Button
+              as="a"
               color={color}
               colorScheme={mood}
               variant="ghost"
@@ -76,8 +71,9 @@ export default function Header({ title }) {
               Home
             </Button>
           </NextLink>
-          <NextLink href="/blog">
+          <NextLink href="/blog" passHref>
             <Button
+              as="a"
               color={color}
               colorScheme={mood}
               variant="ghost"
@@ -87,8 +83,9 @@ export default function Header({ title }) {
               Blog
             </Button>
           </NextLink>
-          <NextLink href="/about">
+          <NextLink href="/about" passHref>
             <Button
+              as="a"
               color={color}
               colorScheme={mood}
               variant="ghost"
@@ -99,12 +96,7 @@ export default function Header({ title }) {
             </Button>
           </NextLink>
 
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={toggleMood}
-            borderRadius={'40%'}
-          >
+          <Button size="sm" variant="ghost" onClick={toggleMood}>
             <CircleIcon boxSize={6} color={mood + '.500'} />
           </Button>
           <Button size="sm" variant="ghost" onClick={toggleTheme}>

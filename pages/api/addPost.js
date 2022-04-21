@@ -1,7 +1,7 @@
 const { connectToDatabase } = require('../../libs/mongo');
 
 module.exports = async (req, res) => {
-  const { name, content, tags, key } = req.body;
+  const { name, content, tags, title, key } = req.body;
   if (key !== process.env.KEY) {
     return res.status(401).json({
       status: 401,
@@ -14,6 +14,7 @@ module.exports = async (req, res) => {
     name,
     content,
     tags,
+    title,
     createdAt: new Date(),
     updatedAt: new Date(),
   });

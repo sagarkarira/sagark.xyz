@@ -23,11 +23,11 @@ export default function BlogList({ allPostsData }) {
               <Code colorScheme={mood}>{date} </Code>
             </Box>
             <Box>
-              <NextLink href={'blog/' + id}>
-                <Text fontWeight="semibold">
+              <Text fontWeight="semibold">
+                <NextLink href={'blog/' + id} passHref>
                   <Link>{title}</Link>
-                </Text>
-              </NextLink>
+                </NextLink>
+              </Text>
             </Box>
           </Flex>
         ))}

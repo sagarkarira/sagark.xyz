@@ -8,6 +8,7 @@ const MicroBlogEditor = () => {
   const initPost = {
     name: 'sagark',
     content: 'write here',
+    title: '',
     tags: '',
     createdAt: new Date(),
   };
@@ -23,6 +24,9 @@ const MicroBlogEditor = () => {
     }
     if (event.target.name === 'tags') {
       setPost(Object.assign({ ...post }, { tags: event.target.value }));
+    }
+    if (event.target.name === 'title') {
+      setPost(Object.assign({ ...post }, { title: event.target.value }));
     }
     if (event.target.name === 'key') {
       setKey(event.target.value);
@@ -63,6 +67,13 @@ const MicroBlogEditor = () => {
                 type="text"
                 name="content"
                 value={post.content}
+                onChange={handleChange}
+              />
+              <Text>Title: </Text>
+              <Input
+                type="text"
+                name="title"
+                value={post.title}
                 onChange={handleChange}
               />
               <Text>Tags: </Text>

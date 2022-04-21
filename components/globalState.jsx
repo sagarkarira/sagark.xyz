@@ -1,53 +1,71 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { useColorMode } from '@chakra-ui/react';
 
-const state = {
+const initState = {
   theme: 'dark',
   mood: 'red',
   pFont: 'Open Sans',
   sFont: 'Open Sans',
 };
 
-export const GlobalContext = createContext(state);
+export const GlobalContext = createContext(initState);
 
 export const GlobalProvider = (props) => {
+  const [state, setState] = useState(initState);
   const { colorMode, toggleColorMode } = useColorMode();
-  const [mood, setMood] = useState('blue');
+
+  useEffect(() => {
+    const localStorageState = localStorage.getItem('state')
+      ? JSON.parse(localStorage.getItem('state'))
+      : undefined;
+    if (localStorageState) {
+      setState(localStorageState);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('state', JSON.stringify(state));
+  }, [state]);
+
+  const { theme, mood } = state;
+
   const toggleMood = () => {
     if (mood === 'blue') {
-      setMood('red');
+      setState({ ...state, mood: 'red' });
     }
     if (mood === 'red') {
-      setMood('green');
+      setState({ ...state, mood: 'green' });
     }
     if (mood === 'green') {
-      setMood('teal');
+      setState({ ...state, mood: 'teal' });
     }
     if (mood === 'teal') {
-      setMood('orange');
+      setState({ ...state, mood: 'orange' });
     }
     if (mood === 'orange') {
-      setMood('cyan');
+      setState({ ...state, mood: 'cyan' });
     }
     if (mood === 'cyan') {
-      setMood('purple');
+      setState({ ...state, mood: 'purple' });
     }
     if (mood === 'purple') {
-      setMood('gray');
+      setState({ ...state, mood: 'gray' });
     }
     if (mood === 'gray') {
-      setMood('blue');
+      setState({ ...state, mood: 'blue' });
     }
   };
+  const toggleTheme = () => {
+    setState({ ...state, theme: colorMode === 'light' ? 'dark' : 'light' });
+    toggleColorMode();
+  };
+
   return (
     <GlobalContext.Provider
       value={{
-        theme: colorMode,
-        mood,
-        toggleTheme: toggleColorMode,
+        ...state,
+        toggleTheme,
         toggleMood,
-        pFont: state.pFont,
-        sFont: state.sFont,
       }}
     >
       {props.children}

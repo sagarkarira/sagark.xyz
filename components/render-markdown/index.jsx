@@ -20,10 +20,10 @@ import ReactMarkdown from 'react-markdown';
 import NextLink from 'next/link';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import { GlobalContext } from '../../components/globalState';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+
 const customComponents = (mood) => ({
   a: (props) => {
     return (

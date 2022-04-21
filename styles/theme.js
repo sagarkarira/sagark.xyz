@@ -8,7 +8,7 @@ const theme = extendTheme({
     body: 'Open Sans',
   },
   config: {
-    useSystemColorMode: true,
+    useSystemColorMode: false,
     initialColorMode: 'dark',
   },
 });
