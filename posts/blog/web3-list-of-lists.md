@@ -18,23 +18,23 @@ Below are the list of lists of materials that will provide you an easy entry int
 
 <br/>
 
-- [Dan Romero Crypto Readings](https://danromero.org/crypto-reading/) —— by [Dan Romero](https://twitter.com/dwr)
+- [Dan Romero Crypto Readings](https://danromero.org/crypto-reading/) — by [Dan Romero](https://twitter.com/dwr)
 
 - [a16z Crypto Canon](https://a16z.com/2018/02/10/crypto-readings-resources/)
 
 - [a16z NFT Canon](https://future.a16z.com/nft-canon/)
 
-- [Gaby’s Web3 Reading List](https://www.notion.so/f7050e62461143d49345e7b46eb5576b) —— by [Gaby Goldberg](https://twitter.com/gaby_goldberg)
+- [Gaby’s Web3 Reading List](https://www.notion.so/f7050e62461143d49345e7b46eb5576b) — by [Gaby Goldberg](https://twitter.com/gaby_goldberg)
 
-- [The Daily Ape List](https://www.notion.so/The-Daily-Ape-c96c0b6727c0433a962e897ef43efb7e) —— by [Darren Lau](https://twitter.com/Darrenlautf)
+- [The Daily Ape List](https://www.notion.so/The-Daily-Ape-c96c0b6727c0433a962e897ef43efb7e) — by [Darren Lau](https://twitter.com/Darrenlautf)
 
-- [Use Web3](https://www.useweb3.xyz/) - Curated list of everything
+- [Use Web3](https://www.useweb3.xyz/) — Curated list of everything
 
 - [a16z Crypto Startup School](https://a16z.com/crypto-startup-school/)
 
 - [Jump Crypto Reading List](https://github.com/JumpCrypto/crypto-reading-list)
 
-- [Richard Chen Reading List](https://thecontrol.co/crypto-reading-list-c54da8cab26a) —— by [Richard Chen](https://twitter.com/richardchen39)
+- [Richard Chen Reading List](https://thecontrol.co/crypto-reading-list-c54da8cab26a) — by [Richard Chen](https://twitter.com/richardchen39)
 
 - [Kernel Community Learning School](https://www.kernel.community/en/learn/)
 

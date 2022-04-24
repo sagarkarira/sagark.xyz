@@ -14,6 +14,7 @@ import {
   UnorderedList,
   Alert,
   AlertDescription,
+  Tag,
 } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 // import Image from 'next/image';
@@ -109,7 +110,9 @@ const customComponents = (mood) => ({
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
     ) : (
-      <Code colorScheme={mood}>{children}</Code>
+      <Tag colorScheme={mood} size="md" variant="solid" minHeight={7}>
+        {children}
+      </Tag>
     );
   },
   // code: ({ children }) => {
