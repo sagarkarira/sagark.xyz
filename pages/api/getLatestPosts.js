@@ -4,7 +4,7 @@ export default async function (req, res) {
   const page = req.query.page || 1;
   const limitVal = 5;
   const skipVal = (page - 1) * limitVal;
-
+  console.log(process.env.MONGODB_URI);
   const db = await connectToDatabase(process.env.MONGODB_URI);
   const collection = await db.collection('microblog');
   const posts = await collection

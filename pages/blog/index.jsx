@@ -3,7 +3,16 @@ import Head from 'next/head';
 import NextLink from 'next/link';
 import { getSortedPostsData } from '../../libs/posts';
 import Layout from '../../components/layout/layout.jsx';
-import { Heading, Text, Box, VStack, Link, Flex, Code } from '@chakra-ui/react';
+import {
+  Heading,
+  Text,
+  Box,
+  VStack,
+  Link,
+  Flex,
+  Code,
+  Tag,
+} from '@chakra-ui/react';
 import { GlobalContext } from '../../components/globalState';
 
 export default function BlogList({ allPostsData }) {
@@ -20,7 +29,9 @@ export default function BlogList({ allPostsData }) {
             gap={[4, 6, 8, 10]}
           >
             <Box>
-              <Code colorScheme={mood}>{date} </Code>
+              <Tag colorScheme={mood} variant="solid" size="md">
+                {date}{' '}
+              </Tag>
             </Box>
             <Box>
               <Text fontWeight="semibold">

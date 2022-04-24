@@ -1,6 +1,7 @@
 ---
 title: How I built my portfolio using NextJS, Typescript, and Chakra UI
-date: '2021-10-24'
+isPublished: false
+date: '2022-04-24'
 author: zeyadetman
 tags:
   - programming

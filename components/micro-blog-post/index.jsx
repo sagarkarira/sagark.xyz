@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import Linkify from 'react-linkify';
 import {
   Code,
+  Tag,
   Avatar,
   Flex,
   Box,
@@ -32,7 +33,9 @@ export default function MicroBlogPost({ post }) {
         </Box>
         <Box minWidth={'100%'} paddingX={2}>
           <Text fontWeight="bold" mb={3}>
-            {post.name}
+            <Link href="https://twitter.com/_sagark" target={'_blank'}>
+              {post.name}
+            </Link>
           </Text>
           {/* <Linkify component={Link}> */}
           <Text mb={4} lineHeight="6" whiteSpace="pre-wrap">
@@ -49,9 +52,9 @@ export default function MicroBlogPost({ post }) {
             </Text>
             <Flex className="tags" gap={2}>
               {post.tags.split(',').map((t, i) => (
-                <Code key={i} colorScheme={mood}>
+                <Tag key={i} colorScheme={mood} size="sm" variant="solid">
                   {t}
-                </Code>
+                </Tag>
               ))}
             </Flex>
           </Flex>
